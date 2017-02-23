@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>download (1).png</file>
+    <file>download (2).png</file>
+    <file>download (3).png</file>
+    <file>download.jpg</file>
+    <file>download.png</file>
+    <file>fsu.jpg</file>
+    <file>images (1).png</file>
+    <file>images.png</file>
+  </qresource>
+</RCC>
