@@ -249,20 +249,25 @@ class Ui_Form(object):
         self.lineEdit_11.setObjectName(_fromUtf8("lineEdit_11"))
         self.verticalLayout.addWidget(self.lineEdit_11)
         ########################################
-        url = self.lineEdit_5.text()
+        self.url = self.lineEdit_5.text()
+
 
         def browser():
             webbrowser.open_new(url)
             
         def publish():
             self.pushButton_6.hide()
+            url = self.lineEdit_5.text()
+            print url
+            print self.lineEdit_5.text()
 
         def handbook():
             webbrowser.open("http://cmpahandbook.com/",new=2)    
 
+        #TODO - change the names of the buttons to reflect what they are
         self.pushButton1.clicked.connect(browser)
-        self.pushButton_2.clicked.connect(handbook)
-        self.pushButton_6.clicked.connect(handbook)
+        self.pushButton_2.clicked.connect(publish)
+        self.pushButton_6.clicked.connect(publish)
         
         ##########################################
         
