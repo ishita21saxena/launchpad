@@ -84,7 +84,7 @@ class Ui_Form(object):
         self.label.setFont(font)
         self.label.setObjectName(_fromUtf8("label"))
         self.groupBox_2 = QtGui.QGroupBox(Form)
-        self.groupBox_2.setGeometry(QtCore.QRect(150, 70, 451, 421))
+        self.groupBox_2.setGeometry(QtCore.QRect(150, 10, 451, 481))
         self.groupBox_2.setStyleSheet(_fromUtf8("background-image: url(:/icon/download.jpg);\n"
 ""))
         self.groupBox_2.setObjectName(_fromUtf8("groupBox_2"))
@@ -130,7 +130,7 @@ class Ui_Form(object):
         self.label_10.setGeometry(QtCore.QRect(210, 240, 91, 16))
         self.label_10.setObjectName(_fromUtf8("label_10"))
         self.pushButton_6 = QtGui.QPushButton(self.groupBox_2)
-        self.pushButton_6.setGeometry(QtCore.QRect(340, 370, 91, 31))
+        self.pushButton_6.setGeometry(QtCore.QRect(350, 440, 91, 31))
         self.pushButton_6.setAutoFillBackground(False)
         self.pushButton_6.setStyleSheet(_fromUtf8("background-image: url(:/icon/download (2).png);"))
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
@@ -231,9 +231,6 @@ class Ui_Form(object):
         self.label_17 = QtGui.QLabel(self.groupBox)
         self.label_17.setGeometry(QtCore.QRect(10, 80, 91, 16))
         self.label_17.setObjectName(_fromUtf8("label_17"))
-        self.label_18 = QtGui.QLabel(self.groupBox)
-        self.label_18.setGeometry(QtCore.QRect(60, 120, 31, 16))
-        self.label_18.setObjectName(_fromUtf8("label_18"))
         self.pushButton_10 = QtGui.QPushButton(self.groupBox)
         self.pushButton_10.setGeometry(QtCore.QRect(110, 120, 75, 23))
         self.pushButton_10.setObjectName(_fromUtf8("pushButton_10"))
@@ -248,26 +245,62 @@ class Ui_Form(object):
         self.lineEdit_11 = QtGui.QLineEdit(self.layoutWidget)
         self.lineEdit_11.setObjectName(_fromUtf8("lineEdit_11"))
         self.verticalLayout.addWidget(self.lineEdit_11)
+        self.widget_2 = QtGui.QWidget(self.groupBox_2)
+        self.widget_2.setGeometry(QtCore.QRect(20, 340, 421, 101))
+        self.widget_2.setObjectName(_fromUtf8("widget_2"))
+
         ########################################
-        self.url = self.lineEdit_5.text()
+        def google():
+            webbrowser.open("https://www.google.com/",new=2)
 
-
+        def handbook():
+            webbrowser.open("http://cmpahandbook.com/",new=2)
+        
         def browser():
-            webbrowser.open_new(url)
-            
-        def publish():
-            self.pushButton_6.hide()
+            self.url = self.lineEdit_5.text()
             url = self.lineEdit_5.text()
             print url
             print self.lineEdit_5.text()
+            webbrowser.open_new(url)
+                
+        def book():
+            self.url2 = self.lineEdit_7.text()
+            url2 = self.lineEdit_7.text()
+            print url2
+            print self.lineEdit_7.text()
+            webbrowser.open_new(url2)
 
-        def handbook():
-            webbrowser.open("http://cmpahandbook.com/",new=2)    
+        if (self.lineEdit_5.textChanged):
+            #pushButton1 is the browser icon
+            self.pushButton1.clicked.connect(browser)
+        else:
+            self.pushButton1.clicked.connect(google)
 
-        #TODO - change the names of the buttons to reflect what they are
-        self.pushButton1.clicked.connect(browser)
-        self.pushButton_2.clicked.connect(publish)
+        if (self.lineEdit_7.textChanged):
+            #pushButton_2 is the book icon
+            self.pushButton_2.clicked.connect(book)
+        else:
+            self.pushButton_2.clicked.connect(handbook)
+            
+        def publish():
+            self.groupBox_2.hide()
+        #pushButton_6 is the Publish Button
         self.pushButton_6.clicked.connect(publish)
+
+        def icon():
+            self.groupBox.hide()
+            self.nameLabel = QtGui.QLabel("Name:")
+            self.nameEdit = QtGui.QLineEdit()
+            self.addressLabel = QtGui.QLabel("URL/Program Path")
+            self.addressEdit = QtGui.QLineEdit()
+            self.layout = QtGui.QGridLayout(self.widget_2)
+            self.layout.addWidget(self.nameLabel, 20, 10)
+            self.layout.addWidget(self.nameEdit, 60, 10)
+            self.layout.addWidget(self.addressLabel, 180, 10)
+            self.layout.addWidget(self.addressEdit,280, 10)
+        #pushButton_10 is the Add Icon button
+        self.pushButton_10.clicked.connect(icon)
+
         
         ##########################################
         
@@ -299,7 +332,6 @@ class Ui_Form(object):
         self.label_15.setText(_translate("Form", "Add a Shortcut", None))
         self.label_16.setText(_translate("Form", "Name:", None))
         self.label_17.setText(_translate("Form", "URL/Program Path", None))
-        self.label_18.setText(_translate("Form", "Icon", None))
         self.pushButton_10.setText(_translate("Form", "Add Icon", None))
 
 import icons_rc
