@@ -23,29 +23,16 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 import webbrowser
+import subprocess
 
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(743, 584)
-        self.line = QtGui.QFrame(Form)
-        self.line.setGeometry(QtCore.QRect(0, 540, 741, 20))
-        self.line.setFrameShape(QtGui.QFrame.HLine)
-        self.line.setFrameShadow(QtGui.QFrame.Sunken)
-        self.line.setObjectName(_fromUtf8("line"))
-        self.pushButton = QtGui.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(610, 550, 31, 31))
-        self.pushButton.setText(_fromUtf8(""))
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/fsu.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton.setIcon(icon)
-        self.pushButton.setIconSize(QtCore.QSize(35, 35))
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.widget = QtGui.QWidget(Form)
-        self.widget.setGeometry(QtCore.QRect(540, 450, 151, 91))
+        self.widget.setGeometry(QtCore.QRect(300, 490, 151, 91))
         self.widget.setStyleSheet(_fromUtf8("background-image: url(:/icon/download (2).png);"))
         self.widget.setObjectName(_fromUtf8("widget"))
-        self.widget.hide()
         self.pushButton1 = QtGui.QPushButton(self.widget)
         self.pushButton1.setGeometry(QtCore.QRect(10, 40, 25, 19))
         self.pushButton1.setText(_fromUtf8(""))
@@ -127,7 +114,7 @@ class Ui_Form(object):
         self.label_9.setGeometry(QtCore.QRect(40, 240, 31, 16))
         self.label_9.setObjectName(_fromUtf8("label_9"))
         self.label_10 = QtGui.QLabel(self.groupBox_2)
-        self.label_10.setGeometry(QtCore.QRect(210, 240, 91, 16))
+        self.label_10.setGeometry(QtCore.QRect(200, 240, 91, 16))
         self.label_10.setObjectName(_fromUtf8("label_10"))
         self.pushButton_6 = QtGui.QPushButton(self.groupBox_2)
         self.pushButton_6.setGeometry(QtCore.QRect(350, 440, 91, 31))
@@ -190,7 +177,7 @@ class Ui_Form(object):
         self.lineEdit_6.setGeometry(QtCore.QRect(80, 280, 113, 20))
         self.lineEdit_6.setObjectName(_fromUtf8("lineEdit_6"))
         self.label_12 = QtGui.QLabel(self.groupBox_2)
-        self.label_12.setGeometry(QtCore.QRect(210, 280, 91, 16))
+        self.label_12.setGeometry(QtCore.QRect(200, 280, 91, 16))
         self.label_12.setObjectName(_fromUtf8("label_12"))
         self.lineEdit_7 = QtGui.QLineEdit(self.groupBox_2)
         self.lineEdit_7.setGeometry(QtCore.QRect(300, 280, 141, 20))
@@ -208,7 +195,7 @@ class Ui_Form(object):
         self.lineEdit_8.setGeometry(QtCore.QRect(80, 320, 113, 20))
         self.lineEdit_8.setObjectName(_fromUtf8("lineEdit_8"))
         self.label_14 = QtGui.QLabel(self.groupBox_2)
-        self.label_14.setGeometry(QtCore.QRect(210, 320, 91, 16))
+        self.label_14.setGeometry(QtCore.QRect(200, 320, 91, 16))
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self.lineEdit_9 = QtGui.QLineEdit(self.groupBox_2)
         self.lineEdit_9.setGeometry(QtCore.QRect(300, 320, 141, 20))
@@ -231,25 +218,49 @@ class Ui_Form(object):
         self.label_17 = QtGui.QLabel(self.groupBox)
         self.label_17.setGeometry(QtCore.QRect(10, 80, 91, 16))
         self.label_17.setObjectName(_fromUtf8("label_17"))
+        self.label_18 = QtGui.QLabel(self.groupBox)
+        self.label_18.setGeometry(QtCore.QRect(20, 120, 25, 19))
+        self.label_18.setText(_fromUtf8(""))
+        self.label_18.setObjectName(_fromUtf8("label_18"))
         self.pushButton_10 = QtGui.QPushButton(self.groupBox)
-        self.pushButton_10.setGeometry(QtCore.QRect(110, 120, 75, 23))
+        self.pushButton_10.setGeometry(QtCore.QRect(70, 120, 75, 23))
         self.pushButton_10.setObjectName(_fromUtf8("pushButton_10"))
-        self.layoutWidget = QtGui.QWidget(self.groupBox)
-        self.layoutWidget.setGeometry(QtCore.QRect(110, 50, 135, 48))
-        self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
-        self.verticalLayout = QtGui.QVBoxLayout(self.layoutWidget)
-        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.lineEdit_10 = QtGui.QLineEdit(self.layoutWidget)
-        self.lineEdit_10.setObjectName(_fromUtf8("lineEdit_10"))
-        self.verticalLayout.addWidget(self.lineEdit_10)
-        self.lineEdit_11 = QtGui.QLineEdit(self.layoutWidget)
-        self.lineEdit_11.setObjectName(_fromUtf8("lineEdit_11"))
-        self.verticalLayout.addWidget(self.lineEdit_11)
+        self.pushButton_11 = QtGui.QPushButton(self.groupBox)
+        self.pushButton_11.setGeometry(QtCore.QRect(160, 120, 75, 23))
+        self.pushButton_11.setObjectName(_fromUtf8("pushButton_11"))
+        self.lineEdit_2 = QtGui.QLineEdit(self.groupBox)
+        self.lineEdit_2.setGeometry(QtCore.QRect(110, 50, 113, 20))
+        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
+        self.lineEdit_3 = QtGui.QLineEdit(self.groupBox)
+        self.lineEdit_3.setGeometry(QtCore.QRect(110, 80, 113, 20))
+        self.lineEdit_3.setObjectName(_fromUtf8("lineEdit_3"))
         self.widget_2 = QtGui.QWidget(self.groupBox_2)
-        self.widget_2.setGeometry(QtCore.QRect(20, 340, 421, 101))
+        self.widget_2.setGeometry(QtCore.QRect(0, 350, 451, 51))
         self.widget_2.setObjectName(_fromUtf8("widget_2"))
+        self.widget_2.hide()
+        self.label_19 = QtGui.QLabel(self.widget_2)
+        self.label_19.setGeometry(QtCore.QRect(10, 10, 25, 19))
+        self.label_19.setText(_fromUtf8(""))
+        self.label_19.setObjectName(_fromUtf8("label_19"))
+        self.label_20 = QtGui.QLabel(self.widget_2)
+        self.label_20.setGeometry(QtCore.QRect(40, 10, 31, 16))
+        self.label_20.setObjectName(_fromUtf8("label_20"))
+        self.lineEdit_10 = QtGui.QLineEdit(self.widget_2)
+        self.lineEdit_10.setGeometry(QtCore.QRect(80, 10, 113, 20))
+        self.lineEdit_10.setObjectName(_fromUtf8("lineEdit_10"))
+        self.label_21 = QtGui.QLabel(self.widget_2)
+        self.label_21.setGeometry(QtCore.QRect(200, 10, 91, 16))
+        self.label_21.setObjectName(_fromUtf8("label_21"))
+        self.lineEdit_11 = QtGui.QLineEdit(self.widget_2)
+        self.lineEdit_11.setGeometry(QtCore.QRect(300, 10, 141, 20))
+        self.lineEdit_11.setObjectName(_fromUtf8("lineEdit_11"))
 
         ########################################
+        def pipelinebrowser():
+            subprocess.call("C:\Users\ishita\PycharmProjects\core_tools\src\apps\browser\main.py")
+
+        self.pushButton_3.clicked.connect(pipelinebrowser)
+
         def google():
             webbrowser.open("https://www.google.com/",new=2)
 
@@ -287,27 +298,39 @@ class Ui_Form(object):
         #pushButton_6 is the Publish Button
         self.pushButton_6.clicked.connect(publish)
 
-        def icon():
-            self.groupBox.hide()
-            self.nameLabel = QtGui.QLabel("Name:")
-            self.nameEdit = QtGui.QLineEdit()
-            self.addressLabel = QtGui.QLabel("URL/Program Path")
-            self.addressEdit = QtGui.QLineEdit()
-            self.layout = QtGui.QGridLayout(self.widget_2)
-            self.layout.addWidget(self.nameLabel, 20, 10)
-            self.layout.addWidget(self.nameEdit, 60, 10)
-            self.layout.addWidget(self.addressLabel, 180, 10)
-            self.layout.addWidget(self.addressEdit,280, 10)
-        #pushButton_10 is the Add Icon button
-        self.pushButton_10.clicked.connect(icon)
 
-        
+
+        def addicon():
+            iconpath = QtGui.QFileDialog.getOpenFileName(caption='Open File', directory="/Desktop", filter="*.png *.xpm *.jpg")
+            print iconpath
+            self.link = str(iconpath)
+            link = str(iconpath)
+            self.label_18.setPixmap(QtGui.QPixmap(iconpath))
+            self.label_18.setScaledContents(True)
+            self.label_19.setPixmap(QtGui.QPixmap(link))
+            self.label_19.setScaledContents(True)
+
+        #pushButton_10 is the Add Icon button
+        self.pushButton_10.clicked.connect(addicon)
+
+        def OK():
+            self.name1 = self.lineEdit_2.text()
+            name1 = self.lineEdit_2.text()
+            self.lineEdit_10.setText(name1)
+            self.name2 = self.lineEdit_3.text()
+            name2 = self.lineEdit_3.text()
+            self.lineEdit_11.setText(name2)
+            self.groupBox.hide()
+
+        # pushButton_11 is the OK button
+        self.pushButton_11.clicked.connect(OK)
+
         ##########################################
         
         self.retranslateUi(Form)
-        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.widget.show)
         QtCore.QObject.connect(self.pushButton_4, QtCore.SIGNAL(_fromUtf8("clicked()")), self.groupBox_2.show)
         QtCore.QObject.connect(self.pushButton_7, QtCore.SIGNAL(_fromUtf8("clicked()")), self.groupBox.show)
+        QtCore.QObject.connect(self.pushButton_11, QtCore.SIGNAL(_fromUtf8("clicked()")), self.widget_2.show)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
@@ -333,6 +356,18 @@ class Ui_Form(object):
         self.label_16.setText(_translate("Form", "Name:", None))
         self.label_17.setText(_translate("Form", "URL/Program Path", None))
         self.pushButton_10.setText(_translate("Form", "Add Icon", None))
+        self.pushButton_11.setText(_translate("Form", "OK", None))
+        self.label_20.setText(_translate("Form", "Name:", None))
+        self.label_21.setText(_translate("Form", "URL/Program Path", None))
+        self.label_14.setText(_translate("Form", "URL/Program Path", None))
+        self.label_13.setText(_translate("Form", "Name:", None))
+        self.lineEdit_4.setText(_translate("Form", "Google", None))
+        self.lineEdit_5.setText(_translate("Form", "https://www.google.com/", None))
+        self.lineEdit_6.setText(_translate("Form", "Handbook", None))
+        self.lineEdit_7.setText(_translate("Form", "http://cmpahandbook.com/", None))
+        self.lineEdit_8.setText(_translate("Form", "Pipeline", None))
+        self.lineEdit_9.setText(_translate("Form", "C:\Users\ishita\PycharmProjects\core_tools\src\apps\browser", None))
+
 
 import icons_rc
 
