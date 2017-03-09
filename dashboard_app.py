@@ -261,12 +261,6 @@ class Ui_Form(object):
 
         self.pushButton_3.clicked.connect(pipelinebrowser)
 
-        def google():
-            webbrowser.open("https://www.google.com/",new=2)
-
-        def handbook():
-            webbrowser.open("http://cmpahandbook.com/",new=2)
-        
         def browser():
             self.url = self.lineEdit_5.text()
             url = self.lineEdit_5.text()
@@ -281,20 +275,19 @@ class Ui_Form(object):
             print self.lineEdit_7.text()
             webbrowser.open_new(url2)
 
-        if (self.lineEdit_5.textChanged):
-            #pushButton1 is the browser icon
-            self.pushButton1.clicked.connect(browser)
-        else:
-            self.pushButton1.clicked.connect(google)
 
-        if (self.lineEdit_7.textChanged):
-            #pushButton_2 is the book icon
-            self.pushButton_2.clicked.connect(book)
-        else:
-            self.pushButton_2.clicked.connect(handbook)
+        #pushButton1 is the browser icon
+        self.pushButton1.clicked.connect(browser)
+
+
+        #pushButton_2 is the book icon
+        self.pushButton_2.clicked.connect(book)
+
+
             
         def publish():
             self.groupBox_2.hide()
+
         #pushButton_6 is the Publish Button
         self.pushButton_6.clicked.connect(publish)
 
