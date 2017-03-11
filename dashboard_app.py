@@ -34,7 +34,7 @@ class Ui_Form(object):
         self.widget.setStyleSheet(_fromUtf8("background-image: url(:/icon/download (2).png);"))
         self.widget.setObjectName(_fromUtf8("widget"))
         self.pushButton1 = QtGui.QPushButton(self.widget)
-        self.pushButton1.setGeometry(QtCore.QRect(10, 40, 25, 19))
+        self.pushButton1.setGeometry(QtCore.QRect(0, 40, 25, 19))
         self.pushButton1.setText(_fromUtf8(""))
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/images (1).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -42,7 +42,7 @@ class Ui_Form(object):
         self.pushButton1.setIconSize(QtCore.QSize(25, 25))
         self.pushButton1.setObjectName(_fromUtf8("pushButton1"))
         self.pushButton_2 = QtGui.QPushButton(self.widget)
-        self.pushButton_2.setGeometry(QtCore.QRect(50, 40, 25, 19))
+        self.pushButton_2.setGeometry(QtCore.QRect(40, 40, 25, 19))
         self.pushButton_2.setText(_fromUtf8(""))
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/download.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -50,7 +50,7 @@ class Ui_Form(object):
         self.pushButton_2.setIconSize(QtCore.QSize(25, 25))
         self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
         self.pushButton_3 = QtGui.QPushButton(self.widget)
-        self.pushButton_3.setGeometry(QtCore.QRect(90, 40, 25, 19))
+        self.pushButton_3.setGeometry(QtCore.QRect(80, 40, 25, 19))
         self.pushButton_3.setText(_fromUtf8(""))
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/download (1).png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -71,7 +71,7 @@ class Ui_Form(object):
         self.label.setFont(font)
         self.label.setObjectName(_fromUtf8("label"))
         self.groupBox_2 = QtGui.QGroupBox(Form)
-        self.groupBox_2.setGeometry(QtCore.QRect(150, 10, 451, 481))
+        self.groupBox_2.setGeometry(QtCore.QRect(160, 70, 451, 481))
         self.groupBox_2.setStyleSheet(_fromUtf8("background-image: url(:/icon/download.jpg);\n"
 ""))
         self.groupBox_2.setObjectName(_fromUtf8("groupBox_2"))
@@ -121,6 +121,11 @@ class Ui_Form(object):
         self.pushButton_6.setAutoFillBackground(False)
         self.pushButton_6.setStyleSheet(_fromUtf8("background-image: url(:/icon/download (2).png);"))
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
+        self.pushButton_12 = QtGui.QPushButton(self.groupBox_2)
+        self.pushButton_12.setGeometry(QtCore.QRect(230, 440, 91, 31))
+        self.pushButton_12.setAutoFillBackground(False)
+        self.pushButton_12.setStyleSheet(_fromUtf8("background-image: url(:/icon/download (2).png);"))
+        self.pushButton_12.setObjectName(_fromUtf8("pushButton_12"))
         self.pushButton_7 = QtGui.QPushButton(self.groupBox_2)
         self.pushButton_7.setGeometry(QtCore.QRect(100, 200, 16, 16))
         self.pushButton_7.setObjectName(_fromUtf8("pushButton_7"))
@@ -254,6 +259,11 @@ class Ui_Form(object):
         self.lineEdit_11 = QtGui.QLineEdit(self.widget_2)
         self.lineEdit_11.setGeometry(QtCore.QRect(300, 10, 141, 20))
         self.lineEdit_11.setObjectName(_fromUtf8("lineEdit_11"))
+        self.pushButton = QtGui.QPushButton(self.widget)
+        self.pushButton.setGeometry(QtCore.QRect(120, 40, 25, 19))
+        self.pushButton.setText(_fromUtf8(""))
+        self.pushButton.setObjectName(_fromUtf8("pushButton"))
+        self.pushButton.hide()
 
         ########################################
         def pipelinebrowser():
@@ -288,9 +298,10 @@ class Ui_Form(object):
         def publish():
             self.groupBox_2.hide()
 
+
+
         #pushButton_6 is the Publish Button
         self.pushButton_6.clicked.connect(publish)
-
 
 
         def addicon():
@@ -302,6 +313,10 @@ class Ui_Form(object):
             self.label_18.setScaledContents(True)
             self.label_19.setPixmap(QtGui.QPixmap(link))
             self.label_19.setScaledContents(True)
+            icon6 = QtGui.QIcon()
+            icon6.addPixmap(QtGui.QPixmap(_fromUtf8(link)), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.pushButton.setIcon(icon6)
+            self.pushButton.setIconSize(QtCore.QSize(25, 25))
 
         #pushButton_10 is the Add Icon button
         self.pushButton_10.clicked.connect(addicon)
@@ -314,9 +329,21 @@ class Ui_Form(object):
             name2 = self.lineEdit_3.text()
             self.lineEdit_11.setText(name2)
             self.groupBox.hide()
+            self.pushButton.show()
 
         # pushButton_11 is the OK button
         self.pushButton_11.clicked.connect(OK)
+
+        def newicon():
+            self.url4 = self.lineEdit_11.text()
+            url4 = self.lineEdit_11.text()
+            print url4
+            print self.lineEdit_11.text()
+            webbrowser.open_new(url4)
+
+        self.pushButton.clicked.connect(newicon)
+
+
 
         ##########################################
         
@@ -340,6 +367,7 @@ class Ui_Form(object):
         self.label_9.setText(_translate("Form", "Name:", None))
         self.label_10.setText(_translate("Form", "URL/Program Path", None))
         self.pushButton_6.setText(_translate("Form", "Publish Changes", None))
+        self.pushButton_12.setText(_translate("Form", "Apply Changes", None))
         self.pushButton_7.setText(_translate("Form", "+", None))
         self.label_11.setText(_translate("Form", "Name:", None))
         self.label_12.setText(_translate("Form", "URL/Program Path", None))
