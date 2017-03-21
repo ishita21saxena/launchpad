@@ -29,6 +29,9 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(743, 584)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8(":/icon/fsu.jpg")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Form.setWindowIcon(icon)
         self.widget = QtGui.QWidget(Form)
         self.widget.setGeometry(QtCore.QRect(300, 490, 151, 91))
         self.widget.setStyleSheet(_fromUtf8("background-image: url(:/icon/download (2).png);"))
@@ -146,6 +149,12 @@ class Ui_Form(object):
         self.checkBox_2.setGeometry(QtCore.QRect(120, 110, 70, 17))
         self.checkBox_2.setText(_fromUtf8(""))
         self.checkBox_2.setObjectName(_fromUtf8("checkBox_2"))
+        self.pushButton13 = QtGui.QPushButton(self.groupBox_2)
+        self.pushButton13.setGeometry(QtCore.QRect(230, 50, 25, 19))
+        self.pushButton13.setText(_fromUtf8(""))
+        self.pushButton13.setIcon(icon)
+        self.pushButton13.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton13.setObjectName(_fromUtf8("pushButton13"))
         self.pushButton2 = QtGui.QPushButton(self.groupBox_2)
         self.pushButton2.setGeometry(QtCore.QRect(110, 140, 101, 19))
         self.pushButton2.setMaximumSize(QtCore.QSize(101, 19))
@@ -345,6 +354,7 @@ class Ui_Form(object):
 
 
 
+
         ##########################################
         
         self.retranslateUi(Form)
@@ -399,5 +409,8 @@ if __name__ == "__main__":
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
+    w = QtGui.QWidget()
+    trayIcon = QtGui.QSystemTrayIcon(QtGui.QIcon(":/icon/fsu.jpg"), w)
+    trayIcon.show()
     sys.exit(app.exec_())
 
